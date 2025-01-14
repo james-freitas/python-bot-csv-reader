@@ -12,10 +12,10 @@ time.sleep(3)
 
 # 2. Login on application
 pyautogui.click(x=698, y=437)
-pyautogui.write("pythonimpressionador@gmail.com")
+pyautogui.write("somebody@gmail.com")
 pyautogui.press("tab") # type tab to pass to the password field
 
-pyautogui.write("minha senha aqui")
+pyautogui.write("some password")
 pyautogui.press("tab") 
 pyautogui.press("enter") # confirm login
 
