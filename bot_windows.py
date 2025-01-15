@@ -39,7 +39,7 @@ pyautogui.click(x=955, y=638) # click on login button
 time.sleep(3)
 
 # 3: Import products to register
-import pandas as pd
+import pandas as pd # type: ignore
 
 tabela = pd.read_csv("produtos.csv")
 
