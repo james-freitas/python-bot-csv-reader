@@ -2,12 +2,20 @@ import pyautogui
 import webbrowser
 import time
 import pandas as pd
-
+import os
+from dotenv import load_dotenv
 
 # 1. Configuration
 # Waiting time between commands
 pyautogui.PAUSE = 0.2
-webbrowser.open_new("https://dlp.hashtagtreinamentos.com/python/intensivao/login")
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Access environment variables
+application_url = os.getenv('APPLICATION_URL')
+
+webbrowser.open_new(application_url)
 time.sleep(3)
 
 # 2. Login on application
@@ -26,7 +34,6 @@ table = pd.read_csv("produtos_small.csv")
 print(table)
 
 # Passo 4: Register a product
-
 for line in table.index:
 
     # click on code field

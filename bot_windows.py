@@ -1,55 +1,56 @@
-# Passo a passo do projeto
-# Passo 1: Entrar no sistema da empresa 
-    # https://dlp.hashtagtreinamentos.com/python/intensivao/login
-
+# Step by step
+# 1: Enter on application 
+    
 import pyautogui
 import time
+import os
+from dotenv import load_dotenv
 
-# pyautogui.write -> escrever um tpyautogui.press -> apertar 1 tecla
-# pyautogui.click -> clicar em algum lugar da tela
-# pyautogui.hotkey -> combinação de teclas
+# pyautogui.write -> write a tpyautogui.press -> press 1 key
+# pyautogui.click -> click some point of screen
+# pyautogui.hotkey -> combination of keys
 pyautogui.PAUSE = 0.3
 
-# abrir o navegador (chrome)
+# Load environment variables from .env file
+load_dotenv()
+
+# Access environment variables
+application_url = os.getenv('APPLICATION_URL')
+
+# open browser (chrome)
 pyautogui.press("win")
 pyautogui.write("chrome")
 pyautogui.press("enter")
 
-# entrar no link 
-pyautogui.write("https://dlp.hashtagtreinamentos.com/python/intensivao/login")
+# enter the link 
+pyautogui.write(application_url)
 pyautogui.press("enter")
 time.sleep(3)
 
-# Passo 2: Fazer login
-# selecionar o campo de email    
+# 2:  Login
 
 pyautogui.click(x=698, y=437)
-# escrever o seu email
-pyautogui.write("pythonimpressionador@gmail.com")
-pyautogui.press("tab") # passando pro próximo campo
+# type your email
+pyautogui.write("someemail@gmail.com")
+pyautogui.press("tab") # to next field
 pyautogui.write("sua senha")
 
-pyautogui.click(x=955, y=638) # clique no botao de login
+pyautogui.click(x=955, y=638) # click on login button
 time.sleep(3)
 
-# Passo 3: Importar a base de produtos pra cadastrar
+# 3: Import products to register
 import pandas as pd
 
 tabela = pd.read_csv("produtos.csv")
 
 print(tabela)
 
-# Passo 4: Cadastrar um produto
+# 4: Register a product
 for linha in tabela.index:
-    # clicar no campo de código
     pyautogui.click(x=653, y=294)
-    # pegar da tabela o valor do campo que a gente quer preencher
     codigo = tabela.loc[linha, "codigo"]
-    # preencher o campo
     pyautogui.write(str(codigo))
-    # passar para o proximo campo
     pyautogui.press("tab")
-    # preencher o campo
     pyautogui.write(str(tabela.loc[linha, "marca"]))
     pyautogui.press("tab")
     pyautogui.write(str(tabela.loc[linha, "tipo"]))
@@ -64,7 +65,7 @@ for linha in tabela.index:
     if not pd.isna(obs):
         pyautogui.write(str(tabela.loc[linha, "obs"]))
     pyautogui.press("tab")
-    pyautogui.press("enter") # cadastra o produto (botao enviar)
-    # dar scroll de tudo pra cima
+    pyautogui.press("enter") # register the product (send button)
+    # scroll up
     pyautogui.scroll(5000)
-    # Passo 5: Repetir o processo de cadastro até o fim
+    # 5: Repeat until the end
