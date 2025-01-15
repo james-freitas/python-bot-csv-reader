@@ -1,5 +1,11 @@
 # CSV Bot reader and form filler
-Bot that reads CSV and inputs data on application form
+ - Bot that reads CSV and inputs data on application form
+
+## Features
+ - Task automation
+ - Bot creation
+ - Save hours of work
+ - RPA and Web Scraping
 
 ## ✔️ Requirements
 - Python 2 or greater
