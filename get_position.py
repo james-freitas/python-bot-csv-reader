@@ -1,4 +1,4 @@
-import pyautogui
+import pyautogui # type: ignore
 import time
 
 # Put the mouse cursor on the desired position and run the code

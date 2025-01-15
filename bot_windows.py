@@ -1,7 +1,7 @@
 # Step by step
 # 1: Enter on application 
     
-import pyautogui
+import pyautogui # type: ignore
 import time
 import os
 from dotenv import load_dotenv

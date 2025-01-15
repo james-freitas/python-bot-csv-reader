@@ -1,7 +1,7 @@
-import pyautogui
+import pyautogui # type: ignore
 import webbrowser
 import time
-import pandas as pd
+import pandas as pd # type: ignore
 import os
 from dotenv import load_dotenv
 
